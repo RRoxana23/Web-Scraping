@@ -18,6 +18,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         List<Product> products = new ArrayList<>();
         String baseUrl = "https://www2.hm.com/en_gb/ladies/shop-by-product/dresses.html";
         try {
@@ -64,6 +65,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+
+        System.out.println("\nExecution time: " + executionTime + " milliseconds");
     }
 
     private static int getTotalPages(Document firstPage) {
